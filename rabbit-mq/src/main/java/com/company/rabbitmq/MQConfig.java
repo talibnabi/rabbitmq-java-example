@@ -12,9 +12,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MQConfig {
 
-    private static final String EXCHANGE = "message_exchange";
-    private static final String QUEUE = "message_queue";
-    private static final String ROUTING_KEY = "message_routingKey";
+    public static final String EXCHANGE = "message_exchange";
+    public static final String QUEUE = "message_queue";
+    public static final String ROUTING_KEY = "message_routingKey";
 
     @Bean
     public Queue queue() {
@@ -41,8 +41,8 @@ public class MQConfig {
 
     @Bean
     public AmqpTemplate template(ConnectionFactory connectionFactory) {
-        RabbitTemplate template = new RabbitTemplate(connectionFactory);
-        template.setMessageConverter(messageConverter());
-        return template;
+        RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
+        rabbitTemplate.setMessageConverter(messageConverter());
+        return rabbitTemplate;
     }
 }
