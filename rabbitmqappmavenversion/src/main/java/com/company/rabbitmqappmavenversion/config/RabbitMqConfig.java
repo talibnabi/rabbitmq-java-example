@@ -1,4 +1,4 @@
-package com.company.rabbitmq;
+package com.company.rabbitmqappmavenversion.config;
 
 
 import org.springframework.amqp.core.*;
@@ -9,8 +9,9 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+
 @Configuration
-public class MQConfig {
+public class RabbitMqConfig {
 
     public static final String EXCHANGE = "direct-exchange";
     public static final String QUEUE = "message-queue";
@@ -45,4 +46,5 @@ public class MQConfig {
         rabbitTemplate.setMessageConverter(messageConverter());
         return rabbitTemplate;
     }
+
 }
